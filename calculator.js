@@ -18,8 +18,6 @@ app.controller('calculatorCtrl', function($scope, $http) {
 				+ "&annualNominalInterestRate=" + $scope.formData.interestRate
 				+ "&totalNumberOfPayments=" + $scope.formData.downPaymentYears * 12;
 
-		console.log("Recalculating, form is valid: " + form.$valid);		
-
 		if(form.$valid || form.$valid == undefined) {
 			$http.jsonp("https://cfs-ws-itera.cicero.no/cfp/6/ws/rest/calculator/calculateLoan?_jsonp=JSON_CALLBACK&" + args)
 				.success(function(data) {
